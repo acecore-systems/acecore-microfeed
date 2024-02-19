@@ -30,20 +30,20 @@ import {isValidMediaFile} from "../../../../common-src/MediaFileUtils";
 const columnHelper = createColumnHelper();
 const columns = [
   columnHelper.accessor('title', {
-    header: 'Title',
+    header: 'タイトル',
     cell: info => info.getValue(),
   }),
   columnHelper.accessor('status', {
-    header: 'Status',
+    header: 'ステータス',
     cell: info => <div className={clsx('text-center font-semibold', info.getValue() === STATUSES.PUBLISHED ? 'text-brand-light' : '')}>
       {ITEM_STATUSES_DICT[info.getValue()].name}</div>,
   }),
   columnHelper.accessor('pubDateMs', {
-    header: 'Published date',
+    header: '公開日',
     cell: info => <div className="text-center">{msToDatetimeLocalString(info.getValue())}</div>,
   }),
   columnHelper.accessor('mediaFile', {
-    header: 'Media file',
+    header: 'メディアファイル',
     cell: info => info.getValue(),
   }),
 ];
@@ -69,12 +69,12 @@ function ItemListTable({data, feed}) {
         groupName="sort-order"
         buttons={[
           {
-            name: 'Newest first',
+            name: '新しい順',
             value: ITEMS_SORT_ORDERS.NEWEST_FIRST,
             checked: newestFirst,
           },
           {
-            name: 'Oldest first',
+            name: '古い順',
             value: ITEMS_SORT_ORDERS.OLDEST_FIRST,
             checked: !newestFirst,
           },
@@ -157,12 +157,12 @@ export default class AllItemsApp extends React.Component {
           <div className="text-muted-color text-sm flex-1">
             id: {item.id}
           </div>
-          <ExternalLink linkClass="text-xs text-helper-color" url={PUBLIC_URLS.webItem(item.id, item.title)} text="Public page" />
+          <ExternalLink linkClass="text-xs text-helper-color" url={PUBLIC_URLS.webItem(item.id, item.title)} text="公開ページ" />
           <div className="ml-4 flex-none">
             <a
               className="block text-xs text-helper-color"
               href={ADMIN_URLS.editItem(item.id)}
-            >Edit this item <span className="lh-icon-arrow-right"/></a>
+            >このアイテムを編集 <span className="lh-icon-arrow-right"/></a>
           </div>
         </div>
       </div>,
@@ -192,9 +192,9 @@ export default class AllItemsApp extends React.Component {
         <div>
           {data.length > 0 ? <ItemListTable data={data} feed={feed} /> : <div>
             <div className="mb-8">
-              No items yet.
+              アイテムはまだありません。
             </div>
-            <a href={ADMIN_URLS.newItem()}>Add a new item now <span className="lh-icon-arrow-right" /></a>
+            <a href={ADMIN_URLS.newItem()}>今すぐ新しいアイテムを追加する <span className="lh-icon-arrow-right" /></a>
           </div>}
         </div>
       </form>

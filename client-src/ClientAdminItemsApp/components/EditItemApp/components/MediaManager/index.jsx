@@ -24,18 +24,18 @@ const UPLOAD_STATUS__START = 1;
 
 function PreviewCurrentMediaFile({url, contentType, category, durationSecond, sizeByte, setRef, updateDuration}) {
   return (<div className="mb-8">
-      <div className="lh-page-subtitle">Current {category}</div>
+      <div className="lh-page-subtitle">現在 {category}</div>
       <div className="grid grid-cols-2 gap-4">
         {category === ENCLOSURE_CATEGORIES.AUDIO && <div className="col-span-1">
           <audio controls preload="metadata" ref={setRef} onLoadedMetadata={updateDuration}>
             <source src={url} type={contentType}/>
-            Your browser does not support the audio element.
+              お使いのブラウザはaudio要素をサポートしていません。
           </audio>
         </div>}
         {category === ENCLOSURE_CATEGORIES.VIDEO && <div className="col-span-1">
           <video width="80%" preload="metadata" controls ref={setRef} onLoadedMetadata={updateDuration}>
             <source src={url} type={contentType} />
-            Your browser does not support the video tag.
+              お使いのブラウザはvideoタグに対応していません。
           </video>
         </div>}
         {category === ENCLOSURE_CATEGORIES.IMAGE && <div className="col-span-1">
@@ -43,16 +43,16 @@ function PreviewCurrentMediaFile({url, contentType, category, durationSecond, si
         </div>}
         <div className="col-span-1 text-sm">
           <div className="mb-1">
-            <span className="text-helper-color">Content type:</span> {contentType}
+            <span className="text-helper-color">コンテンツの種類:</span> {contentType}
           </div>
           <div className="mb-1">
-            <span className="text-helper-color">File size:</span> {humanFileSize(sizeByte)}
+            <span className="text-helper-color">ファイルサイズ:</span> {humanFileSize(sizeByte)}
           </div>
           {[ENCLOSURE_CATEGORIES.AUDIO, ENCLOSURE_CATEGORIES.VIDEO].includes(category) && <div className="mb-1">
-            <span className="text-helper-color">Duration:</span> {secondsToHHMMSS(durationSecond)}
+            <span className="text-helper-color">期間:</span> {secondsToHHMMSS(durationSecond)}
           </div>}
           <div className="break-all">
-            <span className="text-helper-color">Download url:</span> <a href={url} className="text-xs" target="_blank">{url}</a>
+            <span className="text-helper-color">ダウンロードURL:</span> <a href={url} className="text-xs" target="_blank">{url}</a>
           </div>
         </div>
       </div>
@@ -91,12 +91,12 @@ function MediaUploader(
       >
         <div className="w-full h-24 lh-upload-box mt-2 p-4 flex items-center justify-center">
           {uploading ? <div className="text-helper-color">
-            <div className="font-semibold">Uploading...</div>
+            <div className="font-semibold">アップロード中...</div>
             <div className="text-sm">{progressText}</div>
           </div> : <div className="text-brand-light">
             <div className="flex items-center">
               <div className="mr-1"><CloudArrowUpIcon className="w-8"/></div>
-              <div className="font-semibold">Click or drag here to upload {category}</div>
+              <div className="font-semibold">ここをクリックまたはドラッグするとアップロードします。 {category}</div>
             </div>
             <div className="text-sm">{fileTypes.join(', ')}</div>
           </div>}
@@ -120,10 +120,10 @@ function UrlEditor({url, onUpdateUrl}) {
     />
     <details className="mt-4 text-helper-color">
       <summary className="hover:opacity-50 text-sm cursor-pointer">
-        Bookmarklet: add a "to microfeed" button to browser
+        ブックマークレット:ブラウザに「マイクロフィードへ」ボタンを追加
       </summary>
       <div className="mt-4 text-sm">
-        Drag this link to your browser, so you can easily curate web pages here -
+        このリンクをブラウザにドラッグすると、ここでWebページを簡単にキュレーションできます。-
         <div className="mt-4 underline" dangerouslySetInnerHTML={{__html: bookmarklet}} />
       </div>
     </details>
