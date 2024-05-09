@@ -105,7 +105,7 @@ function MethodRow({method, updateMethodByAttr, index, firstIndex, lastIndex, mo
                 <div>Delete</div>
               </div>
             </a></div> : <div className="text-xs text-muted-color">
-              <i>Click "Update" to sync up and actually delete it. Or <a
+              <i>「更新」をクリックして同期し、実際に削除します。又は <a
                 href="#"
                 className="text-brand-light text-xs"
                 onClick={(e) => {
@@ -131,10 +131,10 @@ function AddNewMethod({isOpenNewMethod, setIsOpenNewMethod, addNewMethod}) {
     >
       <div className="flex items-center justify-center">
         <div className="w-4 mr-1"><PlusCircleIcon/></div>
-        <div>Add new subscribe method</div>
+        <div>新しい subscribe メソッドを追加</div>
       </div>
     </a>
-    <div className="mt-1 text-xs text-muted-color text-center">e.g., Apple Podcasts, Spotify, Listen Notes...</div>
+    <div className="mt-1 text-xs text-muted-color text-center">例:Apple Podcasts, Spotify, Listen Notes...</div>
     <NewSubscribeDialog
       isOpen={isOpenNewMethod}
       setIsOpen={setIsOpenNewMethod}

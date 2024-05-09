@@ -45,12 +45,12 @@ export default class TrackingSettingsApp extends React.Component {
         />
       </div>
       <div className="mt-4 text-xs text-helper-color">
-        microfeed will automatically add 3rd-party tracking urls (e.g., <a href="https://op3.dev/">OP3</a>, <a
-        href="http://analytics.podtrac.com/">Podtrac</a>, <a href="https://chartable.com/">Chartable</a>...) before the url of a media file, so you can easily track download stats. This is a <a href="https://lowerstreet.co/blog/podcast-tracking" target="_blank" rel="noopener noreferrer">common practice in the podcast industry</a>.
+        microfeedは、メディアファイルのURLの前にサードパーティのトラッキングURL (例．<a href="https://op3.dev/">OP3</a>, <a
+        href="http://analytics.podtrac.com/">Podtrac</a>, <a href="https://chartable.com/">Chartable</a>...) を自動的に追加するため、ダウンロード統計を簡単に追跡できます。これは <a href="https://lowerstreet.co/blog/podcast-tracking" target="_blank" rel="noopener noreferrer">ポッドキャスト業界では一般的な方法です。</a>.
       </div>
       {urls.length > 0 && <div className="mt-4 text-xs break-all text-helper-color">
         <div className="mb-2">
-          Example: if an audio url is {exampleAudio}, then the final url in the rss feed will be:
+          例:オーディオのurlが {exampleAudio}の場合、rssフィードの最終urlは次のようになります:
         </div>
         <b>{buildAudioUrlWithTracking(exampleAudio, urls)}</b>
       </div>}

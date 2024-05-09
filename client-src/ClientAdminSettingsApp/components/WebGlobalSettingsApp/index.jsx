@@ -46,7 +46,7 @@ export default class WebGlobalSettingsApp extends React.Component {
     const {feed, currentType, favicon, publicBucketUrl, itemsPerPage, itemsSortOrder} = this.state;
     const {submitting, submitForType, setChanged} = this.props;
     return (<SettingsBase
-      title="Web global settings"
+      title="ウェブグローバル設定"
       submitting={submitting}
       submitForType={submitForType}
       currentType={currentType}
@@ -69,7 +69,7 @@ export default class WebGlobalSettingsApp extends React.Component {
     >
       <div className="grid grid-cols-1 gap-4">
         <details open>
-          <summary className="lh-page-subtitle cursor-pointer">R2 public bucket url</summary>
+          <summary className="lh-page-subtitle cursor-pointer">R2パブリックバケットURL</summary>
           <AdminInput
             type="url"
             customClass="text-xs"
@@ -78,7 +78,7 @@ export default class WebGlobalSettingsApp extends React.Component {
           />
         </details>
         <details open>
-          <summary className="lh-page-subtitle cursor-pointer">Items settings</summary>
+          <summary className="lh-page-subtitle cursor-pointer">アイテム設定</summary>
           <div className="grid grid-cols-2 gap-4">
             <div className="col-span-1">
               <AdminInput
@@ -95,9 +95,9 @@ export default class WebGlobalSettingsApp extends React.Component {
                   let newItemsPerPage = parseInt(e.target.value, 10);
                   if (newItemsPerPage > MAX_ITEMS_PER_PAGE) {
                     newItemsPerPage = MAX_ITEMS_PER_PAGE;
-                    showToast(`Items per page should be less than ${MAX_ITEMS_PER_PAGE}`, 'error', 5000)
+                    showToast(`1ページあたりのアイテム数は、次の値より小さくする必要があります ${MAX_ITEMS_PER_PAGE}`, 'error', 5000)
                   } else if (newItemsPerPage < 0) {
-                    showToast('Items per page should not be a negative number', 'error', 5000)
+                    showToast('1ページあたりのアイテム数は負の数値であってはなりません', 'error', 5000)
                   }
                   this.setState({itemsPerPage: newItemsPerPage}, () => setChanged())
                 }}
@@ -137,11 +137,11 @@ export default class WebGlobalSettingsApp extends React.Component {
               }}
               imageSizeNotOkayMsgFunc={(width, height) => {
                 if (width > 256 && height > 256) {
-                  return `Image too big: ${parseInt(width)} x ${parseInt(height)} pixels. ` +
-                    "You'd better upload a smaller image for favicon.";
+                  return `画像が大きすぎます: ${parseInt(width)} x ${parseInt(height)} pixels. ` +
+                    "favicon用に小さい画像をアップロードすることをお勧めします.";
                 } else if (width < 48 && height < 48) {
-                  return `Image too small: ${parseInt(width)} x ${parseInt(height)} pixels. ` +
-                    "You'd better upload a bigger image for favicon.";
+                  return `画像が小さすぎます: ${parseInt(width)} x ${parseInt(height)} pixels. ` +
+                    "favicon用にもっと大きな画像をアップロードしたほうがいい.";
                 }
                 return '';
               }}

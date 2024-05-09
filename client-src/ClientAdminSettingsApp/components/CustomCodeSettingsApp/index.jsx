@@ -23,27 +23,27 @@ export default class CustomCodeSettingsApp extends React.Component {
     const {submitting, submitForType} = this.props;
     const {currentType} = this.state;
     return (<SettingsBase
-      title="Custom code"
+      title="カスタムコード"
       submitting={submitting}
       submitForType={submitForType}
       currentType={currentType}
     >
       <NavBlock
         url={ADMIN_URLS.codeEditorSettings()}
-        text="Edit shared html code across web pages"
+        text="Webページ間で共有されたHTMLコードを編集する"
       />
       <div className="text-xs text-muted-color mt-2">
-        {'Code inside <head></head> and at top & bottom of <body></body>'}
+        {'<head></head>内と<body></body>の上部と下部にコードを記述する。'}
       </div>
 
       <div className="mt-8">
         <div className="lh-page-subtitle">Themes</div>
         <NavBlock
           url={`${ADMIN_URLS.codeEditorSettings()}?type=${CODE_TYPES.THEMES}&theme=custom`}
-          text="Edit web and rss styling"
+          text="WebとRSSのスタイルを編集する"
         />
         <div className="text-xs text-muted-color mt-2">
-          <em>microfeed will support multiple themes / templates in the future</em>
+          <em>マイクロフィードは、将来的に複数のテーマ/テンプレートをサポートする予定です</em>
         </div>
       </div>
     </SettingsBase>);
