@@ -22,7 +22,7 @@
     "axios": "^1.6.0",
     "clsx": "^1.2.1",
     "cropperjs": "^1.5.12",
-    "fast-xml-parser": "^4.2.5",
+    "fast-xml-parser": "^4.4.1",
     "html-to-text": "^8.2.1",
     "jest": "25",
     "lz-string": "^1.4.4",
