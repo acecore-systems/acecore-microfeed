@@ -80,7 +80,7 @@ function SetupPublicBucketUrl({onboardState, webGlobalSettings, cloudflareUrls})
         </button>
       </div>
     </div>
-    <div className="mt-4 rounded bg-gray-100 p-2 text-sm grid grid-cols-1 gap-2">
+    <div className="mt-4 rounded-sm bg-gray-100 p-2 text-sm grid grid-cols-1 gap-2">
       <details>
         <summary className="cursor-pointer font-semibold hover:opacity-50">
           R2のpublic bucketのURLはどこにありますか?
@@ -140,7 +140,7 @@ function SetupPublicBucketUrl({onboardState, webGlobalSettings, cloudflareUrls})
 
 function ProtectedAdminDashboard({onboardState, cloudflareUrls}) {
   return (<CheckListItem onboardState={onboardState} title="管理者用のダッシュボードにログインする。">
-    <div className="mt-4 rounded bg-gray-100 p-2 text-sm grid grid-cols-1 gap-2 text-helper-color">
+    <div className="mt-4 rounded-sm bg-gray-100 p-2 text-sm grid grid-cols-1 gap-2 text-helper-color">
       <div className="mb-2">
         <a href="https://developers.cloudflare.com/cloudflare-one/applications/configure-apps/self-hosted-apps/" target="_blank">
         Cloudflare Zero Trust</a> を使用してログインし、許可されたユーザーだけがこの管理ダッシュボードにアクセスできます。
@@ -234,7 +234,7 @@ function ProtectedAdminDashboard({onboardState, cloudflareUrls}) {
 
 function CustomDomain({onboardState, cloudflareUrls}) {
   return (<CheckListItem onboardState={onboardState} title="カスタムドメインを使用する。">
-    <div className="mt-4 rounded bg-gray-100 p-2 text-sm grid grid-cols-1 gap-2 text-helper-color">
+    <div className="mt-4 rounded-sm bg-gray-100 p-2 text-sm grid grid-cols-1 gap-2 text-helper-color">
       <div className="mb-2">
         カスタムドメインを使用すると、ボット管理、アクセス、キャッシュなどのCloudflareの機能を利用することができます。
       </div>
@@ -256,7 +256,7 @@ function CustomDomain({onboardState, cloudflareUrls}) {
         </summary>
         <div className="mt-4">
           新しく追加したカスタムドメインからこの管理ダッシュボードにアクセスしたい場合、
-          管理URLのセルフホストアプリを作成する必要があります。{cloudflareUrls.pagesDevUrl}, 
+          管理URLのセルフホストアプリを作成する必要があります。{cloudflareUrls.pagesDevUrl},
           を使う代わりに、今回は新しいカスタムドメインを使用します。
         </div>
         <div className="mt-4">
@@ -289,7 +289,7 @@ export default class SetupChecklistApp extends React.Component {
       <div className="lh-page-title">
         セットアップチェックリスト
       </div>
-      {onboardingResult.allOk && <div className="text-helper-color border border-green-700 bg-green-100 text-green-700 rounded p-2">
+      {onboardingResult.allOk && <div className="text-helper-color border border-green-700 bg-green-100 text-green-700 rounded-sm p-2">
         <i>セットが完了しました!</i>
         <div className="mt-2">
           新しいアイテムを追加して <a href={ADMIN_URLS.newItem()}>発行を開始する <span className="lh-icon-arrow-right" /></a>
